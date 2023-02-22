@@ -1,6 +1,7 @@
+https://amirahanchian.github.io/Resources/Cleaned_Data_intensity.json
 
-
-$.getJSON("http://127.0.0.1:5000/api/v1.0/Tsunami", function(data) {
+//$.getJSON("http://127.0.0.1:5000/api/v1.0/Tsunami", function(data) {
+$.getJSON("https://amirahanchian.github.io/Resources/Cleaned_Data_intensity.json", function(data) {
     //console.log(data);
 
     

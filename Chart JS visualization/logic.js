@@ -22,21 +22,41 @@ $.getJSON("https://amirahanchian.github.io/Resources/Cleaned_Data_intensity.json
    delete Object.assign(cause, { "Volcano": cause['6'] })['6'];
    delete Object.assign(cause, { "Meteorological": cause['9'] })['9'];
 
-   console.log(cause); // { newKey: 'value' }
+   //console.log(cause); // { newKey: 'value' }
 
 
    
-   cause2 = {...cause, "Questionable Earthquake": 0, "Volcano and Earthquake":0, "Volcano, Earthquake, and Landslide":0, "Volcano and Landslide":0, "Landslide":0, "unknown": 0};
-   console.log(cause)
+   cause2 = {...cause, "Questionable Earthquake": 0, "Volcano and Earthquake":0, "Volcano, Earthquake, and Landslide":0, "Volcano and Landslide":0, "Landslide":0};
+   //console.log(cause2)
 
    country = _.countBy(tsunami_info, function(tsunami_info) { return tsunami_info['Country']; });
+   
    year = _.countBy(tsunami_info, function(tsunami_info) { return tsunami_info['Year']; });
+   year_array = Object.entries(year);
+
+
+   //const groupBy = (array, key) => {
+     // Return the end result
+     //  return array.reduce((result, currentValue) => {
+     // If an array already present for key, push it to the array. Else create an array and push the object
+     //  (result[currentValue[key]] = result[currentValue[key]] || []).push(
+     //  currentValue
+     //   );
+     // Return the current iteration `result` value, this will be taken as next iteration `result` value and accumulate
+     //   return result;
+     // }, {}); // empty object is the initial value for result object
+    //};
+    
+    // Group by color as key to the person array
+    //const year_grouped = groupBy(year_array, '0');
+   
+   //console.log(year_grouped)
 
 
 
 
-
-   const ctx = document.getElementById('myChart');
+   //Chart.defaults.global.legend.display = false; 
+   const ctx = document.getElementById('myChart').getContext("2d");
    var chart = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -49,6 +69,14 @@ $.getJSON("https://amirahanchian.github.io/Resources/Cleaned_Data_intensity.json
       },
       options: {
          responsive: 'true',
+         
+         plugins:{
+            title: {
+               display: true,
+               text: 'Tsunami Cause'},
+            legend: {
+                display: false,}     
+         }
       }
    
    });
@@ -56,33 +84,49 @@ $.getJSON("https://amirahanchian.github.io/Resources/Cleaned_Data_intensity.json
    const ctx2 = document.getElementById('myChart2');
    var chart2 = new Chart(ctx2, {
       type: 'bar',
+      
       data: {
          
          datasets: [{
-            backgroundColor: 'rgb(129, 198, 2228)',
+            backgroundColor: 'rgb(1000, 0, 2)',
             borderColor: 'rgb(0, 150, 215)',
             data: country
          }]
       },
       options: {
          responsive: 'true',
+         
+         plugins:{
+            title: {
+               display: true,
+               text: 'Tsunami Data by Country'},
+            legend: {
+                display: false,}     
+         }
       }
-   
    });
 
    const ctx3 = document.getElementById('myChart3');
    var chart3 = new Chart(ctx3, {
-      type: 'bar',
+      type: 'line',
       data: {
          
          datasets: [{
-            backgroundColor: 'rgb(129, 198, 2228)',
+            backgroundColor: 'rgb(0, 198, 2228)',
             borderColor: 'rgb(0, 150, 215)',
             data: year
+            
          }]
       },
       options: {
          responsive: 'true',
+         plugins:{
+            title: {
+               display: true,
+               text: 'Tsunami Frequency by Year'},
+            legend: {
+                display: false,}     
+         }
       }
    
    });

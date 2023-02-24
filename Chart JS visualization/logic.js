@@ -69,11 +69,45 @@ $.getJSON("https://amirahanchian.github.io/Resources/Cleaned_Data_intensity.json
       },
       options: {
          responsive: 'true',
-         
+         scales: {
+               
+            y: {
+               ticks: {
+                  font: {
+                      size: 14,
+                  }
+               },
+              title: {
+                display: true,
+                text: 'Frequency',
+                font: {
+                  size: 16,
+               }
+              }
+            },
+            x: {
+               ticks: {
+                  font: {
+                      size: 14,
+                  }
+               },
+               title: {
+                 display: true,
+                 text: 'Cause Name',
+                 font: {
+                  size: 16,
+                  }
+               }
+             }
+         },     
          plugins:{
             title: {
                display: true,
-               text: 'Tsunami Cause'},
+               text: 'Tsunami Causes',
+               font: {
+                  size: 22,
+               }
+            },
             legend: {
                 display: false,}     
          }
@@ -95,11 +129,45 @@ $.getJSON("https://amirahanchian.github.io/Resources/Cleaned_Data_intensity.json
       },
       options: {
          responsive: 'true',
-         
+         scales: {
+               
+            y: {
+               ticks: {
+                  font: {
+                      size: 14,
+                  }
+               },
+              title: {
+                display: true,
+                text: 'Frequency',
+                font: {
+                  size: 16,
+                }
+              }
+            },
+            x: {
+               ticks: {
+                  font: {
+                      size: 14,
+                  }
+               },
+               title: {
+                 display: true,
+                 text: 'Country Name',
+                 font: {
+                     size: 16,
+                  }
+               }
+             }
+         },  
          plugins:{
             title: {
                display: true,
-               text: 'Tsunami Data by Country'},
+               text: 'Tsunami Frequency by Country',
+               font: {
+                  size: 22,
+               }
+            },
             legend: {
                 display: false,}     
          }
@@ -120,12 +188,48 @@ $.getJSON("https://amirahanchian.github.io/Resources/Cleaned_Data_intensity.json
       },
       options: {
          responsive: 'true',
+         scales: {
+               
+            y: {
+               ticks: {
+                  font: {
+                      size: 14,
+                  }
+               },
+              title: {
+                display: true,
+                text: 'Frequency',
+                font: {
+                  size: 16,
+               }
+              }
+            },
+            x: {
+               ticks: {
+                  font: {
+                      size: 14,
+                  }
+               },
+               title: {
+                 display: true,
+                 text: 'Year of Occurance',
+                 font: {
+                     size: 16,
+                  }
+               }
+             }
+            },  
          plugins:{
             title: {
                display: true,
-               text: 'Tsunami Frequency by Year'},
+               text: 'Tsunami Frequency by Year',
+               font: {
+                  size: 22,
+               }
+            },
             legend: {
-                display: false,}     
+                display: false},
+                 
          }
       }
    
